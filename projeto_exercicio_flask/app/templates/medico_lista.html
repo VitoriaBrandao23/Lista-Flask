@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block titulo %} medico cadastro {% endblock %}
+
+{% block conteudo %}
+<h1>Lista de Médicos presentes no Sistema</h1>
+<ul>
+    {% for medico in medicos %}
+      <li>{{medico.id}} - {{medico.nome_completo}} - {{medico.crm}} - {{medico.especialidade}}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -14,7 +14,7 @@ especialidades = ['Cardiologia', 'Dermatologia',
                   'Medicina Interna', 'Medicina de Família']
 
 class MedicoForm(FlaskForm):
-    nome = StringField('Nome Completo', validators=[DataRequired(), Length(min=5, max=100)])
+    nome_completo = StringField('Nome Completo', validators=[DataRequired(), Length(min=5, max=100)])
     username = StringField('Nome de Usuário', validators=[DataRequired(), Length(min=5, max=100)])
     crm = StringField('CRM', validators=[DataRequired(), Length(min=8, max=8)])
     especialidade = SelectField('Especialidade', choices = especialidades)

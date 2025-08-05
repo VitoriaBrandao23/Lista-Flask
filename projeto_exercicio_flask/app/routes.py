@@ -1,5 +1,6 @@
 from flask import render_template, flash, redirect, url_for
 from app import app, db
+from app.models import Medico
 from app.forms.medico_form import MedicoForm
 from app.controllers.MedicoController import MedicoController
 
@@ -20,3 +21,13 @@ def medicoNovo():
             flash("Erro ao cadastrar novo médico.", category="error")
             return render_template("medico_form.html", form = formulario)
     return render_template('medico_form.html', titulo='Cadastro de Médico', form = formulario)
+
+@app.route('/medicos', methods = ['GET'])
+def ver_medicos():
+    lista_medicos = MedicoController.listar_medicos()
+    return render_template('medico_lista.html', medicos = lista_medicos)
+
+@app.route('/medico/<int:id>', methods = ['GET'])
+def dado_medico(id):
+    medico = MedicoController.buscar_por_medico(id)  
+    return render_template("medico_detalhes.html", medico = medico)

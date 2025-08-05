@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block titulo %}Médico Selecionado{% endblock %}
+
+{% block conteudo %}
+<h1>Dados do Médico Cadastrado</h1>
+<p>Id: {{medico.id}} <br>
+    Nome: {{medico.nome_completo}} <br>
+    CRM: {{medico.crm}} <br>
+    Especialidade: {{medico.especialidade}} <br>
+    Email: {{medico.email}} <br>
+    Criado em: {{medico.criado_em}}</p>
+{% endblock %}
