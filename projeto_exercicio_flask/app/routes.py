@@ -6,7 +6,7 @@ from app.controllers.MedicoController import MedicoController
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('base.html')
 
 @app.route('/medicos/novo', methods = ['GET', 'POST'])
 def medicoNovo():
@@ -15,7 +15,7 @@ def medicoNovo():
         sucesso = MedicoController.salvar(formulario)
         if sucesso:
             flash("Médico cadastrado com sucesso!", category="success")
-            return render_template("index.html")
+            return render_template("base.html")
         else:
             flash("Erro ao cadastrar novo médico.", category="error")
             return render_template("medico_form.html", form = formulario)
@@ -41,7 +41,6 @@ def atualizar_medico(id):
         return redirect(url_for('ver_medicos'))
 
     return render_template('medico_form.html', form=form, medico=medico)
-
 
 @app.route("/medicos/<int:id>/quero_excluir", methods=["GET"])
 def quero_excluir(id):

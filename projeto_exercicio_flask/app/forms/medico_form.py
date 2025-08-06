@@ -15,10 +15,8 @@ especialidades = ['Cardiologia', 'Dermatologia',
 
 class MedicoForm(FlaskForm):
     nome_completo = StringField('Nome Completo', validators=[DataRequired(), Length(min=5, max=100)])
-    username = StringField('Nome de Usuário', validators=[DataRequired(), Length(min=5, max=100)])
     crm = StringField('CRM', validators=[DataRequired(), Length(min=8, max=8)])
     especialidade = SelectField('Especialidade', choices = especialidades)
-    email = EmailField('Email', validators=[DataRequired(), Email()])
     submit = SubmitField('Cadastrar Médico')
 
 class ConfirmaApagarForm(FlaskForm):
