@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block titulo %}Apagar?{% endblock %}
+
+{% block conteudo %}
+<form action="{{url_for('excluir_medico', id = medico.id)}}" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <h1>Tem certeza que deseja apagar {{medico.nome_completo}}?</h1>
+    {{ form.submit() }}
+    <a href="{{ url_for('ver_medicos') }}">Cancelar</a>
+</form>
+{% endblock %}

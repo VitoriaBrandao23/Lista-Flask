@@ -20,3 +20,6 @@ class MedicoForm(FlaskForm):
     especialidade = SelectField('Especialidade', choices = especialidades)
     email = EmailField('Email', validators=[DataRequired(), Email()])
     submit = SubmitField('Cadastrar Médico')
+
+class ConfirmaApagarForm(FlaskForm):
+    submit = SubmitField('Apagar')
